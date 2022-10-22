@@ -61,6 +61,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
+      discord
     ];
   };
 
@@ -113,7 +114,8 @@
     git
     ripgrep
 
-    # GNOME extensions
+    # GNOME
+    gnome.gnome-terminal
     gnomeExtensions.appindicator
     gnomeExtensions.dash-to-dock
   ];
