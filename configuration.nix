@@ -1,0 +1,119 @@
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running ‘nixos-help’).
+
+{ config, pkgs, ... }:
+
+{
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+
+  networking.hostName = "paimon"; # Define your hostname.
+
+  # Enable networking
+  networking.networkmanager.enable = true;
+
+  # Set your time zone.
+  time.timeZone = "Europe/London";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_GB.utf8";
+
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+
+  # Enable the GNOME Desktop Environment.
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+
+  # Configure keymap in X11
+  services.xserver = {
+    layout = "gb";
+    xkbVariant = "";
+  };
+
+  # Configure console keymap
+  console.keyMap = "uk";
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+
+  # Enable sound with pipewire.
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.jess = {
+    isNormalUser = true;
+    description = "Jessica Kay";
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [
+      firefox
+    ];
+  };
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  # Add neovim
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    configure = {
+      packages.myVimPackage = with pkgs.vimPlugins; {
+        start = [ vim-nix ];
+      };
+    };
+  };
+
+  # Add starship
+  programs.starship = {
+    enable = true;
+    settings = {
+      username = {
+        format = "[$user]($style)";
+        show_always = true;
+      };
+      hostname = {
+        format = "@[$hostname]($style) ";
+        ssh_only = true;
+      };
+      shlvl = {
+        disabled = false;
+        symbol = " 🐚";
+        threshold = 1;
+      };
+      cmd_duration.disabled = true;
+      directory = {
+        format = " [$path]($style)[$read_only]($read_only_style) ";
+        truncate_to_repo = false;
+        truncation_symbol = "…/";
+      };
+      git_branch.format = " [$symbol$branch]($style) ";
+      character.error_symbol = "💥";
+    };
+  };
+
+  # Add packages that don't take special configuration
+  environment.systemPackages = with pkgs; [
+    git
+    ripgrep
+  ];
+
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
+
+  system.stateVersion = "22.05";
+
+}
