@@ -28,6 +28,9 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  # Enable gnome-settings-daemon udev rules
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+
   # Configure keymap in X11
   services.xserver = {
     layout = "gb";
@@ -109,6 +112,10 @@
   environment.systemPackages = with pkgs; [
     git
     ripgrep
+
+    # GNOME extensions
+    gnomeExtensions.appindicator
+    gnomeExtensions.dash-to-dock
   ];
 
   # Enable the OpenSSH daemon.
