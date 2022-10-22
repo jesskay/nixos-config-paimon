@@ -10,6 +10,19 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
+  # Windows filesystems (read only)
+  fileSystems."/win/c" = {
+    device = "/dev/disk/by-uuid/B062794C627917F4";
+    fsType = "ntfs";
+    options = [ "defaults" "ro" ];
+  };
+  
+  fileSystems."/win/e" = {
+    device = "/dev/disk/by-label/Data";
+    fsType = "ntfs";
+    options = [ "defaults" "ro" ];
+  };
+
   networking.hostName = "paimon"; # Define your hostname.
 
   # Enable networking
