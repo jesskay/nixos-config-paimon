@@ -147,6 +147,7 @@
     gnome.gnome-terminal
     gnomeExtensions.appindicator
     gnomeExtensions.dash-to-panel
+    gnomeExtensions.no-overview
   ];
 
   # Enable the OpenSSH daemon.
