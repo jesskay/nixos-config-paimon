@@ -28,6 +28,9 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Enable wake-on-lan
+  networking.interfaces."enp34s0".wakeOnLan.enable = true;
+
   # Set your time zone.
   time.timeZone = "Europe/London";
 
