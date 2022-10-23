@@ -130,7 +130,8 @@
     # GNOME
     gnome.gnome-terminal
     gnomeExtensions.appindicator
-    gnomeExtensions.dash-to-dock
+    gnomeExtensions.dash-to-panel
+    gnomeExtensions.hide-activities-button
   ];
 
   # Enable the OpenSSH daemon.
