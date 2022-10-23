@@ -14,6 +14,7 @@
           # local modules
           ./configuration.nix
           ./configuration-nix.nix
+          ./configuration-yubikey.nix
           ./hardware-configuration.nix
 
           # upstream modules from a newer nixos (current module must be disabled below if present in both versions)
