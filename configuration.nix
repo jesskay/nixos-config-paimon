@@ -131,6 +131,7 @@
   environment.systemPackages = with pkgs; [
     git
     ripgrep
+    easyeffects
 
     # GNOME
     gnome.gnome-terminal
