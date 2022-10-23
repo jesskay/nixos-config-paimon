@@ -130,6 +130,13 @@
     };
   };
 
+  # Add steam
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
+
   # Add packages that don't take special configuration
   environment.systemPackages = with pkgs; [
     git
