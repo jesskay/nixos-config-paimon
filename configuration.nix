@@ -74,7 +74,12 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
-      discord
+      (discord.override {  # override to use the same nss as firefox
+        # will need updating if firefox ever uses a non-latest nss
+        # obsoleted if/when https://github.com/NixOS/nixpkgs/pull/186603 lands
+        nss = nss_latest;
+      })
+      keepassxc
     ];
   };
 
