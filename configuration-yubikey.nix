@@ -11,4 +11,8 @@
     enable = true;
     mode = "challenge-response";
   };
+  
+  environment.systemPackages = with pkgs; [
+    yubioath-desktop
+  ];
 }
