@@ -11,13 +11,13 @@
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   # Windows filesystems (read only)
-  fileSystems."/media/win/c" = {
+  fileSystems."/media/win-c" = {
     device = "/dev/disk/by-uuid/B062794C627917F4";
     fsType = "ntfs";
     options = [ "defaults" "ro" ];
   };
   
-  fileSystems."/media/win/e" = {
+  fileSystems."/media/win-e" = {
     device = "/dev/disk/by-label/Data";
     fsType = "ntfs";
     options = [ "defaults" "ro" ];
@@ -27,7 +27,6 @@
   fileSystems."/media/data" = {
     device = "/dev/disk/by-label/Linux-Data";
     fsType = "btrfs";
-    options = [ "subvol=@" ];
   };
 
   networking.hostName = "paimon"; # Define your hostname.
