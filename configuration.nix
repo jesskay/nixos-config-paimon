@@ -37,6 +37,13 @@
   # Enable wake-on-lan
   networking.interfaces."enp34s0".wakeOnLan.enable = true;
 
+  # Enable tailscale
+  services.tailscale.enable = true;
+  networking.firewall = {
+    trustedInterfaces = [ "tailscale0" "enp34s0" ];
+    allowedUDPPorts = [ config.services.tailscale.port ];
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/London";
 
