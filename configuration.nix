@@ -102,6 +102,9 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Allow fuse to be run with --allow-other as non-root users
+  programs.fuse.userAllowOther = true;
+
   # Add neovim
   programs.neovim = {
     enable = true;
