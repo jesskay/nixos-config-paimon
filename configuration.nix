@@ -154,13 +154,14 @@
   environment.systemPackages = with pkgs; [
     git
     ripgrep
-    easyeffects
+    rclone
 
     # GNOME
     gnome.gnome-terminal
     gnomeExtensions.appindicator
     gnomeExtensions.dash-to-panel
     gnomeExtensions.no-overview
+    gnomeExtensions.rclone-manager
   ];
 
   # Enable the OpenSSH daemon.
