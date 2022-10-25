@@ -44,6 +44,9 @@
     allowedUDPPorts = [ config.services.tailscale.port ];
   };
 
+  # Enable libvirtd
+  virtualisation.libvirtd.enable = true;
+
   # Set your time zone.
   time.timeZone = "Europe/London";
 
@@ -91,7 +94,7 @@
     isNormalUser = true;
     description = "Jessica Kay";
     uid = 1000;  # set explicitly for consistency
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [
       firefox
       (discord.override {  # override to use the same nss as firefox
@@ -166,6 +169,7 @@
     git
     ripgrep
     piper
+    virt-manager
 
     # GNOME
     gnome.gnome-terminal
