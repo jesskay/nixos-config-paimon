@@ -69,6 +69,9 @@
   # Configure console keymap
   console.keyMap = "uk";
 
+  # Enable ratbagd to configure gaming mice
+  services.ratbagd.enable = true;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -162,6 +165,7 @@
   environment.systemPackages = with pkgs; [
     git
     ripgrep
+    piper
 
     # GNOME
     gnome.gnome-terminal
