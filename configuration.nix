@@ -83,28 +83,11 @@
     pulse.enable = true;
   };
 
-  # Systemd service for mounting OneDrive for users using rclone
-  # (remote must be configured as the user before this can work)
-  systemd.services."rclone-onedrive@" = let
-    rcloneConfig = "/home/%i/.config/rclone/rclone.conf";
-    mountpoint = "/home/%i/OneDrive";
-  in {
-    description = "OneDrive mount for user %i";
-    after = [ "network-online.target" ];
-    wantedBy = [ "default.target" ];
-    path = with pkgs; [ coreutils rclone fuse ];
-    serviceConfig = {
-      Type = "notify";
-      ExecStartPre = "test -f ${rcloneConfig}";
-      ExecStart = "rclone mount --config=${rcloneConfig} --vfs-cache-mode full --umask 022 --allow-other OneDrive:/ ${mountpoint}";
-      ExecStop = "fusermount -u ${mountpoint}";
-    };
-  };
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jess = {
     isNormalUser = true;
     description = "Jessica Kay";
+    uid = 1000;  # set explicitly for consistency
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
@@ -118,7 +101,11 @@
   };
 
   # Enable onedrive mount for jess
-  systemd.services."rclone-onedrive@jess".enable = true;
+  systemd.services."rclone-onedrive-jess" = import ./rclone-onedrive-template.nix { 
+    inherit pkgs;
+    user = "jess";
+    uid = config.users.users."jess".uid;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
