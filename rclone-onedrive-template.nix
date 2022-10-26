@@ -14,7 +14,7 @@ in {
   serviceConfig = {
     Type = "notify";
     ConditionPathExists = "${rcloneConfig}";
-    ExecStart = "${pkgs.rclone}/bin/rclone mount --config=${rcloneConfig} --vfs-cache-mode full --umask 022 --allow-other --uid ${uidStr} OneDrive:/ ${mountpoint}";
+    ExecStart = "${pkgs.rclone}/bin/rclone mount --config=${rcloneConfig} --vfs-cache-mode full --umask 077 --allow-other --uid ${uidStr} OneDrive:/ ${mountpoint}";
     ExecStop = "${pkgs.fuse}/bin/fusermount -u ${mountpoint}";
   };
 }
