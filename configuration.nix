@@ -170,6 +170,7 @@
     ripgrep
     piper
     virt-manager
+    easyeffects
 
     # GNOME
     gnome.gnome-terminal
