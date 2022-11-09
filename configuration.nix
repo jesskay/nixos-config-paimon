@@ -96,7 +96,11 @@
     uid = 1000;  # set explicitly for consistency
     extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [
-      firefox
+      (wrapFirefox firefox-unwrapped {
+        forceWayland = true;
+        cfg.enableGnomeExtensions = true;
+      })
+      firefox-wayland
       (discord.override {  # override to use the same nss as firefox
         # will need updating if firefox ever uses a non-latest nss
         # obsoleted if/when https://github.com/NixOS/nixpkgs/pull/186603 lands
