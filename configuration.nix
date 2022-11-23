@@ -188,6 +188,15 @@
     gnomeExtensions.dash-to-panel
     gnomeExtensions.no-overview
     gnomeExtensions.rclone-manager
+    (gnomeExtensions.arcmenu.overrideAttrs (super: rec {
+      version = "42";
+      src = fetchFromGitLab {
+        owner = "arcmenu";
+        repo = "ArcMenu";
+        rev = "v${version}";
+        sha256 = "1rv78qn6mxym9hnljkbxafvdkz58h95a70pxbv46ngb4dchfvnhd";
+      };
+    }))
   ];
 
   # Enable the OpenSSH daemon.
