@@ -23,12 +23,6 @@
     options = [ "defaults" "ro" ];
   };
 
-  # Data filesystem
-  fileSystems."/media/data" = {
-    device = "/dev/disk/by-label/Linux-Data";
-    fsType = "btrfs";
-  };
-
   networking.hostName = "paimon"; # Define your hostname.
 
   # Enable networking
