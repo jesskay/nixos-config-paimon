@@ -7,7 +7,15 @@
     gimp
     shotcut
     ffmpeg
-    mpv
     prismlauncher
   ];
+
+  programs.mpv = {
+    enable = true;
+    bindings = {
+      "CTRL+-" = "add window-scale -0.125";
+      "CTRL+0" = "set window-scale 1.0";
+      "CTRL+=" = "add window-scale +0.125";
+    };
+  };
 }
