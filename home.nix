@@ -7,6 +7,7 @@
     gimp
     shotcut
     ffmpeg
+    mpv
     prismlauncher
   ];
 }
