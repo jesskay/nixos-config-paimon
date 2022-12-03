@@ -1,7 +1,13 @@
 {
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-22.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
 
-  outputs = { self, nixpkgs, ... }@inputs : {
+  outputs = { self, nixpkgs, home-manager, ... }@inputs : {
 
     nixosConfigurations.paimon = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -24,6 +30,17 @@
           # : list of paths relative to $REPO/nixos/modules/
           (_: { disabledModules = [ ]; })
         ];
+    };
+
+    homeConfigurations.jess = home-manager.lib.homeManagerConfiguration {
+      system = "x86_64-linux";
+
+      stateVersion = "22.05";
+
+      username = "jess";
+      homeDirectory = "/home/jess";
+
+      configuration = ./home.nix;
     };
 
   };
