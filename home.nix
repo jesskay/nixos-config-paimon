@@ -8,6 +8,7 @@
     shotcut
     ffmpeg
     prismlauncher
+    fragments
   ];
 
   programs.mpv = {
