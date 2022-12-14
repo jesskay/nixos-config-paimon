@@ -1,8 +1,8 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
     home-manager = {
-      url = "github:nix-community/home-manager/release-22.05";
+      url = "github:nix-community/home-manager/release-22.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -33,14 +33,11 @@
     };
 
     homeConfigurations.jess = home-manager.lib.homeManagerConfiguration {
-      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
-      stateVersion = "22.05";
-
-      username = "jess";
-      homeDirectory = "/home/jess";
-
-      configuration = ./home.nix;
+      modules = [
+        ./home.nix
+      ];
     };
 
   };

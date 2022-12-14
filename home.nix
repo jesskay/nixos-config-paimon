@@ -1,5 +1,10 @@
 { config, pkgs, inputs, ... }:
 {
+  home.stateVersion = "22.11";
+
+  home.username = "jess";
+  home.homeDirectory = "/home/jess";
+
   # let home-manager manage itself
   programs.home-manager.enable = true;
 
