@@ -50,12 +50,12 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # Enable KDE Plasma.
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
 
-  # Enable gnome-settings-daemon udev rules
-  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+  # Enable dconf to ensure GTK themes are applied under Wayland
+  programs.dconf.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -179,22 +179,6 @@
     piper
     virt-manager
     easyeffects
-
-    # GNOME
-    gnome.gnome-terminal
-    gnomeExtensions.appindicator
-    gnomeExtensions.dash-to-panel
-    gnomeExtensions.no-overview
-    gnomeExtensions.rclone-manager
-    (gnomeExtensions.arcmenu.overrideAttrs (super: rec {
-      version = "42";
-      src = fetchFromGitLab {
-        owner = "arcmenu";
-        repo = "ArcMenu";
-        rev = "v${version}";
-        sha256 = "1rv78qn6mxym9hnljkbxafvdkz58h95a70pxbv46ngb4dchfvnhd";
-      };
-    }))
   ];
 
   # Enable the OpenSSH daemon.
