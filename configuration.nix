@@ -57,6 +57,9 @@
   # Enable dconf to ensure GTK themes are applied under Wayland
   programs.dconf.enable = true;
 
+  # Enable KDE Connect
+  programs.kdeconnect.enable = true;
+
   # Configure keymap in X11
   services.xserver = {
     layout = "gb";
