@@ -93,9 +93,7 @@
     uid = 1000;  # set explicitly for consistency
     extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [
-      (wrapFirefox firefox-unwrapped {
-        cfg.enableGnomeExtensions = true;
-      })
+      firefox
       ((discord.overrideAttrs (super: {  # modify shortcut at the end of the install phase to force 80ms pulse latency
         installPhase = (super.installPhase or "") + ''
           # copy the content out of the symlinked applications dir so we can actually work with it
