@@ -19,6 +19,7 @@
 
           # local modules
           ./configuration.nix
+          ./configuration-fonts.nix
           ./configuration-nix.nix
           ./configuration-yubikey.nix
           ./hardware-configuration.nix
