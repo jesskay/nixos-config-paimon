@@ -5,6 +5,7 @@
       url = "github:nix-community/home-manager/release-22.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    devenv.url = "github:cachix/devenv/v0.5";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs : {
@@ -37,6 +38,11 @@
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
       modules = [
+        ( { ... }: {   # Anonymous module to enable other modules to access flake inputs
+          _module.args.inputs = inputs;
+        })
+
+        # local modules
         ./home.nix
       ];
     };

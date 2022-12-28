@@ -15,6 +15,7 @@
     prismlauncher
     fragments
     onlyoffice-bin
+    inputs.devenv.packages.x86_64-linux.devenv
   ];
 
   programs.mpv = {
