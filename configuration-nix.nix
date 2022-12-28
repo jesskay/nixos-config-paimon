@@ -19,7 +19,7 @@
     templates.to = { type = "github"; owner = "NixOS"; repo = "templates"; };
 
     # `active-config` is set to the flake the current system was built from
-    active-config.flake = inputs.self;
+    active-flake.flake = inputs.self;
   };
 
   # enable flakes and point global repository to a dummy file
