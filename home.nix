@@ -14,6 +14,7 @@
     ffmpeg
     prismlauncher
     fragments
+    onlyoffice-bin
   ];
 
   programs.mpv = {
