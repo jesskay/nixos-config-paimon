@@ -180,6 +180,17 @@
     piper
     virt-manager
     easyeffects
+
+    # kde themes, effects, etc.
+    (kde-rounded-corners.overrideAttrs (super: {
+      version = "unstable-2022-12-20";
+      src = fetchFromGitHub {
+        owner = "matinlotfali";
+        repo = "KDE-Rounded-Corners";
+        rev = "cb6c31f5b58bf61a0c737669d2a0511748b7bfa6";
+        hash = "sha256-ubocO0Vr3g5kIuGNV6vH+ySP42gFps9gPi5d3EpQVFY=";
+      };
+    }))
   ];
 
   # Enable the OpenSSH daemon.
