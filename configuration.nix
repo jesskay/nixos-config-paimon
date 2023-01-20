@@ -180,6 +180,7 @@
     piper
     virt-manager
     easyeffects
+    (neovim-qt.override { neovim = config.programs.neovim.finalPackage; })
 
     # kde themes, effects, etc.
     (kde-rounded-corners.overrideAttrs (super: {
