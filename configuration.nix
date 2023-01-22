@@ -51,7 +51,10 @@
   services.xserver.enable = true;
 
   # Enable KDE Plasma.
-  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm = { 
+    enable = true;
+    theme = "sugar-dark";
+  };
   services.xserver.desktopManager.plasma5.enable = true;
 
   # Enable dconf to ensure GTK themes are applied under Wayland
