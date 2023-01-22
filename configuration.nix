@@ -182,6 +182,8 @@
     (neovim-qt.override { neovim = config.programs.neovim.finalPackage; })
 
     # kde themes, effects, etc.
+    plasma5Packages.bismuth
+    kate
     (kde-rounded-corners.overrideAttrs (super: {
       version = "unstable-2022-12-20";
       src = fetchFromGitHub {
