@@ -7,8 +7,14 @@
         version = "git-20220824";
         dontBuild = true;
         installPhase = ''
-          mkdir -p $out/share/sddm/themes
-          cp -aR $src $out/share/sddm/themes/sugar-dark
+          mkdir -p $out/share/sddm/themes/sugar-dark
+          cp -aR $src/* $out/share/sddm/themes/sugar-dark/
+          sed -i \
+              -e 's|^Background=.*$|Background=${pkgs.plasma-workspace-wallpapers}/share/wallpapers/Shell/contents/images/5120x2880.jpg|' \
+              -e 's/^MainColor=.*$/MainColor="mediumpurple"/' \
+              -e 's/^ScreenWidth=.*$/ScreenWidth=1920/' \
+              -e 's/^ScreenHeight=.*$/ScreenHeight=1080/' \
+              $out/share/sddm/themes/sugar-dark/theme.conf
         '';
         src = final.fetchFromGitHub {
           owner = "MarianArlt";
