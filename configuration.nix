@@ -53,7 +53,7 @@
   # Enable KDE Plasma.
   services.xserver.displayManager.sddm = { 
     enable = true;
-    theme = "sugar-dark";
+    theme = "sugar-light";
   };
   services.xserver.desktopManager.plasma5.enable = true;
 
@@ -180,7 +180,7 @@
         hash = "sha256-ubocO0Vr3g5kIuGNV6vH+ySP42gFps9gPi5d3EpQVFY=";
       };
     }))
-    sddm-sugar-dark  # from overlay
+    sddm-sugar-light  # from overlay
   ];
 
   # Enable the OpenSSH daemon.
