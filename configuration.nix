@@ -110,6 +110,9 @@
     uid = config.users.users."jess".uid;
   };
 
+  # Enable onedrive service
+  services.onedrive.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
