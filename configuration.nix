@@ -103,13 +103,6 @@
     ];
   };
 
-  # Enable onedrive mount for jess
-  systemd.services."rclone-onedrive-jess" = import ./rclone-onedrive-template.nix { 
-    inherit pkgs;
-    user = "jess";
-    uid = config.users.users."jess".uid;
-  };
-
   # Enable onedrive service
   services.onedrive.enable = true;
 
