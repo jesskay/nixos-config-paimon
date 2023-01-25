@@ -24,7 +24,7 @@
           ./configuration-nix.nix
           ./configuration-yubikey.nix
           ./hardware-configuration.nix
-          ./overlay.nix
+          ./overlay
 
           # upstream modules from a newer nixos (current module must be disabled below if present in both versions)
           # : modules paths as strings: "${nixpkgs-unstable}/nixos/modules/path/to/module.nix"

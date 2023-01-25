@@ -2,27 +2,7 @@
 {
   nixpkgs.overlays = [
     (final: prev: {
-      sddm-sugar-light = final.stdenv.mkDerivation rec {
-        pname = "sddm-sugar-light-theme";
-        version = "git-20190202";
-        dontBuild = true;
-        installPhase = ''
-          mkdir -p $out/share/sddm/themes/sugar-light
-          cp -aR $src/* $out/share/sddm/themes/sugar-light/
-          sed -i \
-              -e 's|^Background=.*$|Background=${pkgs.plasma-workspace-wallpapers}/share/wallpapers/Shell/contents/images/5120x2880.jpg|' \
-              -e 's/^AccentColor=.*$/AccentColor="mediumpurple"/' \
-              -e 's/^ScreenWidth=.*$/ScreenWidth=1920/' \
-              -e 's/^ScreenHeight=.*$/ScreenHeight=1080/' \
-              $out/share/sddm/themes/sugar-light/theme.conf
-        '';
-        src = final.fetchFromGitHub {
-          owner = "MarianArlt";
-          repo = "sddm-sugar-light";
-          rev = "19bac00e7bd99e0388d289bdde41bf6644b88772";
-          hash = "sha256-KddZtCTionZntQPD8ttXhHFLZl8b1NsawG9qbjuI1fc=";
-        };
-      };
+      sddm-sugar-light = final.callPackage ./sddm-sugar-light.nix {};
 
       discord-fixup = ((prev.discord.overrideAttrs (super: {
         # modify shortcut at the end of the install phase to force 80ms pulse latency
