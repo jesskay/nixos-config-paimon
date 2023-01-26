@@ -79,6 +79,9 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # Enable bluetooth
+  hardware.bluetooth.enable = true;
+
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -88,6 +91,24 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    media-session.config.bluez-monitor.rules = [
+      {
+        # Matches all cards
+        matches = [ { "device.name" = "~bluez_card.*"; } ];
+        # Enable higher-fidelity codec variants
+        actions.update-props = {
+          "bluez5.reconnect-profiles" = [ "hfp_hf" "hsp_hs" "a2dp_sink" ];
+          "bluez5.msbc-support" = true;
+          "bluez5.sbc-xq-support" = true;
+        };
+      }
+      {
+        matches = [
+          { "node.name" = "~bluez_input.*"; }
+          { "node.name" = "~bluez_output.*"; }
+        ];
+      }
+    ];
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
