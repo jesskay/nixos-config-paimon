@@ -28,6 +28,9 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Disable wait-online service as it breaks on rebuild sometimes and I don't use it
+  systemd.services.NetworkManager-wait-online.enable = false;
+
   # Enable wake-on-lan
   networking.interfaces."enp34s0".wakeOnLan.enable = true;
 
