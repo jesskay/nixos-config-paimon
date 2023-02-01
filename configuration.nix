@@ -36,7 +36,10 @@
   networking.firewall = {
     trustedInterfaces = [ "tailscale0" "enp34s0" ];
     allowedUDPPorts = [ config.services.tailscale.port ];
+    # Loosen reverse path checking, to not break tailscale exit nodes
+    checkReversePath = "loose";
   };
+
 
   # Enable libvirtd
   virtualisation.libvirtd.enable = true;
