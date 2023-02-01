@@ -17,13 +17,21 @@ stdenv.mkDerivation rec {
 
   dontBuild = true;
   installPhase = ''
-    mkdir -p $out/share/sddm/themes/sugar-light
-    cp -aR $src/* $out/share/sddm/themes/sugar-light/
+    # patch out "password not blank" checks - security token login doesn't use password if token present
+    sed -i \
+        -e 's| && password.text !== ""||' \
+        $PWD/Components/Input.qml
+
+    # patch configuration
     sed -i \
         -e 's|^Background=.*$|Background=${plasma-workspace-wallpapers}/share/wallpapers/Shell/contents/images/5120x2880.jpg|' \
         -e 's/^AccentColor=.*$/AccentColor="mediumpurple"/' \
         -e 's/^ScreenWidth=.*$/ScreenWidth=1920/' \
         -e 's/^ScreenHeight=.*$/ScreenHeight=1080/' \
-        $out/share/sddm/themes/sugar-light/theme.conf
+        $PWD/theme.conf
+
+    # copy patched sddm into final output
+    mkdir -p $out/share/sddm/themes/sugar-light
+    cp -aR $PWD/* $out/share/sddm/themes/sugar-light/
   '';
 }
