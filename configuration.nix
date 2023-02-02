@@ -59,7 +59,7 @@
   # Enable KDE Plasma.
   services.xserver.displayManager.sddm = { 
     enable = true;
-    theme = "sugar-light";
+    theme = "We10XOS";
     settings.General.InputMethod = "";  # disable virtual keyboard
   };
   services.xserver.desktopManager.plasma5.enable = true;

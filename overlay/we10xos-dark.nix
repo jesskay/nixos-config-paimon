@@ -22,6 +22,7 @@ stdenv.mkDerivation rec {
     LAYOUT_DIR = "$out/share/plasma/layout-templates";
     LOOKFEEL_DIR = "$out/share/plasma/look-and-feel";
     KVANTUM_DIR = "$out/share/Kvantum";
+    SDDM_DIR = "$out/share/sddm/themes";
     WALLPAPER_DIR = "$out/share/wallpapers";
   in ''
     # create theme directories
@@ -30,6 +31,7 @@ stdenv.mkDerivation rec {
     mkdir -p ${PLASMA_DIR}
     mkdir -p ${LOOKFEEL_DIR}
     mkdir -p ${KVANTUM_DIR}
+    mkdir -p ${SDDM_DIR}
     mkdir -p ${WALLPAPER_DIR}
 
     # copy files into theme directories
@@ -38,6 +40,7 @@ stdenv.mkDerivation rec {
     cp -r $PWD/Kvantum/*                ${KVANTUM_DIR}
     cp -r $PWD/plasma/desktoptheme/*    ${PLASMA_DIR}
     cp -r $PWD/plasma/look-and-feel/*   ${LOOKFEEL_DIR}
+    cp -r $PWD/sddm/We10XOS             ${SDDM_DIR}/
     cp -r $PWD/wallpaper/*              ${WALLPAPER_DIR}
   '';
 }
