@@ -196,7 +196,9 @@
     plasma5Packages.bismuth
     kate
     libsForQt5.lightly
+    libsForQt5.qtstyleplugin-kvantum
     sddm-sugar-light  # from overlay
+    we10xos-dark  # from overlay
   ];
 
   # Enable the OpenSSH daemon.
