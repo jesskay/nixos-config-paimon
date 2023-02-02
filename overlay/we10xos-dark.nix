@@ -1,4 +1,5 @@
 {
+  plasma-workspace-wallpapers,
   fetchFromGitHub,
   stdenv
 }:
@@ -33,6 +34,22 @@ stdenv.mkDerivation rec {
     mkdir -p ${KVANTUM_DIR}
     mkdir -p ${SDDM_DIR}
     mkdir -p ${WALLPAPER_DIR}
+
+    # patch configuration
+    sed -i \
+        -e 's|^background=.*$|background=${plasma-workspace-wallpapers}/share/wallpapers/Shell/contents/images/5120x2880.jpg|' \
+        $PWD/sddm/We10XOS/theme.conf
+
+    # patch text input background
+    sed -i \
+        -e '/color: "#633700"/a opacity: 0.35' \
+        -e 's/color: "#633700"/color: "#000000"/' \
+        $PWD/sddm/We10XOS/Login.qml
+
+    # patch background scaling
+    sed -i \
+        -e 's/fillMode: Image.PreserveAspectCrop/fillMode: Image.PreserveAspectFill/' \
+        $PWD/sddm/We10XOS/Background.qml
 
     # copy files into theme directories
     cp -r $PWD/aurorae/*                ${AURORAE_DIR}
