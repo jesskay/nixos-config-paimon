@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
@@ -190,14 +186,11 @@
     piper
     virt-manager
     easyeffects
-    (neovim-qt.override { neovim = config.programs.neovim.finalPackage; })
 
     # kde themes, effects, etc.
-    plasma5Packages.bismuth
     kate
     libsForQt5.lightly
     libsForQt5.qtstyleplugin-kvantum
-    sddm-sugar-light  # from overlay
     we10xos-dark  # from overlay
   ];
 
