@@ -20,6 +20,7 @@
 
           # local modules
           ./configuration.nix
+          ./configuration-flatpak.nix
           ./configuration-fonts.nix
           ./configuration-nix.nix
           ./configuration-yubikey.nix
