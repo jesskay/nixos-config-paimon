@@ -17,6 +17,7 @@
     onlyoffice-bin
     inputs.devenv.packages.x86_64-linux.devenv
     mosh
+    warp
   ];
 
   programs.mpv = {
