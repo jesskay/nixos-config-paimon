@@ -70,6 +70,7 @@
   services.xserver = {
     layout = "gb";
     xkbVariant = "";
+    xkbOptions = "caps:ctrl_modifier";
   };
 
   # Configure console keymap
