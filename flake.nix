@@ -8,10 +8,14 @@
     devenv.url = "github:cachix/devenv/v0.5";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs : {
+  outputs = { self, nixpkgs, home-manager, ... }@inputs : let
+
+    system = "x86_64-linux";
+
+  in {
 
     nixosConfigurations.paimon = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      inherit system;
       modules =
         [ 
           ( { ... }: {   # Anonymous module to enable other modules to access flake inputs
@@ -37,7 +41,10 @@
     };
 
     homeConfigurations.jess = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
 
       modules = [
         ( { ... }: {   # Anonymous module to enable other modules to access flake inputs
