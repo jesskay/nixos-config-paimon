@@ -19,6 +19,12 @@
     mosh
     warp
     xivlauncher
+    (makeDesktopItem {
+      name = "xmodmap-caps-ctrl";
+      desktopName = "Xmodmap Caps to Ctrl";
+      genericName = "Xmodmap Caps to Ctrl";
+      exec = "${pkgs.xorg.xmodmap}/bin/xmodmap -e \"keysym Caps_Lock = Control_L\"";
+    })
   ];
 
   programs.mpv = {
