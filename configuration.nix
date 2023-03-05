@@ -73,6 +73,13 @@
     xkbOptions = "caps:ctrl_modifier";
   };
 
+  # Change caps-lock keysym to Control_L - this is largely redundant with the xkb option, but wine
+  # only sees the change when it's made as keysym
+  services.xserver.displayManager.sessionCommands = ''
+    ${pkgs.xorg.xmodmap}/bin/xmodmap -e "clear lock"
+    ${pkgs.xorg.xmodmap}/bin/xmodmap -e "keysym Caps_Lock = Control_L"
+  '';
+
   # Configure console keymap
   console.keyMap = "uk";
 
