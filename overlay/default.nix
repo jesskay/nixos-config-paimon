@@ -2,6 +2,8 @@
 {
   nixpkgs.overlays = [
     (final: prev: {
+      xkb-symbols-gb-capsctrl = final.callPackage ./xkb-symbols-gb-capsctrl.nix {};
+
       sddm-sugar-light = final.callPackage ./sddm-sugar-light.nix {};
 
       we10xos-dark = final.callPackage ./we10xos-dark.nix {};

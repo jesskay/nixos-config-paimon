@@ -68,9 +68,14 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "gb";
+    layout = "custom";
     xkbVariant = "";
-    xkbOptions = "caps:ctrl_modifier";
+    xkbOptions = "";
+    extraLayouts."custom" = {
+      description = "UK layout with Caps as LCtrl";
+      languages = [ "eng" ];
+      symbolsFile = "${pkgs.xkb-symbols-gb-capsctrl}/share/X11/xkb/symbols/custom";
+    };
   };
 
   # Configure console keymap
