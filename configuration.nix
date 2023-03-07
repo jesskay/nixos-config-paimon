@@ -186,7 +186,7 @@
   };
 
   # Add packages that don't take special configuration
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = (with pkgs; [
     git
     ripgrep
     piper
@@ -195,10 +195,12 @@
 
     # kde themes, effects, etc.
     kate
-    libsForQt5.lightly
-    libsForQt5.qtstyleplugin-kvantum
     we10xos-dark  # from overlay
-  ];
+  ]) ++ (with pkgs.libsForQt5; [
+    lightly
+    qtstyleplugin-kvantum
+    ark
+  ]);
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;

@@ -10,6 +10,7 @@
 
   home.packages = with pkgs; [
     gimp
+    blender
     shotcut
     ffmpeg
     prismlauncher
