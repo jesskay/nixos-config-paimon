@@ -39,6 +39,7 @@
     checkReversePath = "loose";
   };
 
+  services.fwupd.enable = true;
 
   # Enable libvirtd
   virtualisation.libvirtd.enable = true;
