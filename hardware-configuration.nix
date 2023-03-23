@@ -14,7 +14,13 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/30155c3a-9f3d-493f-99fe-c6c30ec10319";
+    { device = "/dev/disk/by-label/NIXOS_ROOT";
+      fsType = "btrfs";
+      options = [ "subvol=@" ];
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-label/NIXOS_HOME";
       fsType = "btrfs";
       options = [ "subvol=@" ];
     };
@@ -25,7 +31,7 @@
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/ee92cf77-9d6e-450c-9a0c-b6c4039bbaec"; }
+    [ { device = "/dev/disk/by-label/swap"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
