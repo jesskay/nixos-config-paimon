@@ -13,7 +13,13 @@
   # set up various useful registry entries
   nix.registry = {
     # `nixpkgs` is set to the same nixpkgs flake used to build this configuration
-    nixpkgs.flake = inputs.nixpkgs;
+    nixpkgs.flake = inputs.nixpkgs-unstable;
+
+    # `nixpkgs-stable` is set to the stable flake
+    nixpkgs-stable.flake = inputs.nixpkgs;
+
+    # `nixpkgs-unstable` is set to the unstable flake
+    nixpkgs-unstable.flake = inputs.nixpkgs-unstable;
 
     # `templates` is set to the same as the global registry, so `nix flake init` can work
     templates.to = { type = "github"; owner = "NixOS"; repo = "templates"; };
