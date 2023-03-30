@@ -61,6 +61,13 @@
   };
   services.xserver.desktopManager.plasma5.enable = true;
 
+  # Enable remote plasma
+  services.xrdp = {
+    enable = true;
+    defaultWindowManager = "startplasma-x11";
+    openFirewall = true;
+  };
+
   # Enable dconf to ensure GTK themes are applied under Wayland
   programs.dconf.enable = true;
 
