@@ -181,6 +181,7 @@
     ripgrep
     piper
     virt-manager
+    virtiofsd
     easyeffects
 
     # kde themes, effects, etc.
