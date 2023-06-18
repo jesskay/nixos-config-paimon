@@ -120,6 +120,11 @@
       discord-fixup  # from overlay
       keepassxc
     ];
+    openssh.authorizedKeys.keys = [
+      "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNlbD3M/P430r5JgrbriC6H2dKUSuIflEouucsNwNR0cWQVYorpyn/hR6APsav6q9HaiHQPramKwCP7e2/3N2us= ShellFish@iPhone-30102022"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBoZB9gm4v2V+ucQdcB5bET43xvWRuSbqSAyxeBmbzoh ipadmini"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGZh89nwHqzxMB8vxQiO2upejx/tcTLxeZqnlOARyK15 shortcuts-iphone"
+    ];
   };
 
   # Enable onedrive service
