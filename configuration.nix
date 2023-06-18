@@ -199,7 +199,20 @@
   ]);
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings.Macs = [
+      # offer the 6 MACs recommended by https://blog.stribik.technology/2015/01/04/secure-secure-shell.html
+      #  and https://infosec.mozilla.org/guidelines/openssh#modern-openssh-67
+      #  (NixOS as of 23.05 only offers ETM options, but some devices I use still only use MTE)
+      "hmac-sha2-512-etm@openssh.com"
+      "hmac-sha2-256-etm@openssh.com"
+      "umac-128-etm@openssh.com"
+      "hmac-sha2-512"
+      "hmac-sha2-256"
+      "umac-128@openssh.com"
+    ];
+  };
 
   system.stateVersion = "23.11";
 
