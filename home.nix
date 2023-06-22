@@ -23,6 +23,11 @@
     xivlauncher
   ];
 
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
   programs.mpv = {
     enable = true;
     bindings = let
