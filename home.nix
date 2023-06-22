@@ -23,6 +23,9 @@
     xivlauncher
   ];
 
+  # let home manager manage bash so that additions to its profile (e.g., direnv) can load
+  programs.bash.enable = true;
+
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
