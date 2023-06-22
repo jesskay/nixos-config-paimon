@@ -21,6 +21,12 @@
     mosh
     warp
     xivlauncher
+    (vscode-with-extensions.override {
+      vscodeExtensions = with vscode-extensions; [
+        mkhl.direnv
+        rust-lang.rust-analyzer
+      ];
+    })
   ];
 
   # let home manager manage bash so that additions to its profile (e.g., direnv) can load
