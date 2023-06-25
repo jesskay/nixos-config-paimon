@@ -108,6 +108,14 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+  environment.etc."pipewire/revert-min-quantum.d/99-custom.conf".text = ''
+    # revert to the pre-0.3.67 minimums
+    pulse.properties = {
+        pulse.min.req       = 256/48000   # 5ms
+        pulse.min.frag      = 256/48000   # 5ms
+        pulse.min.quantum   = 256/48000   # 5ms
+    }.
+  '';
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jess = {
