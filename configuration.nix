@@ -114,7 +114,7 @@
         pulse.min.req       = 256/48000   # 5ms
         pulse.min.frag      = 256/48000   # 5ms
         pulse.min.quantum   = 256/48000   # 5ms
-    }.
+    }
   '';
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
