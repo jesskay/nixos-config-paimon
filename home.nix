@@ -14,6 +14,7 @@
     krita
     shotcut
     ffmpeg
+    obs-studio
     prismlauncher
     fragments
     onlyoffice-bin
