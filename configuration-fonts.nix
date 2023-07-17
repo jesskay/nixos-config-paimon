@@ -9,6 +9,12 @@
       ferrum
       roboto
       roboto-mono
+      roboto-slab
+      cabin
+      overpass
+      iosevka
+      iosevka-comfy.comfy-motion
+      iosevka-comfy.comfy-wide-motion
 
       # fallbacks and "core" fonts
       # (enableDefaultFonts list as of 2022-12-18, but
