@@ -15,6 +15,7 @@
     shotcut
     ffmpeg
     obs-studio
+    obsidian
     prismlauncher
     fragments
     onlyoffice-bin
