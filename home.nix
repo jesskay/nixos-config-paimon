@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 {
   home.stateVersion = "22.11";
 
@@ -7,6 +7,12 @@
 
   # let home-manager manage itself
   programs.home-manager.enable = true;
+
+  # rebuild KDE application cache on activation, to pick up new programs in the menu immediately
+  home.activation.rebuildKsycoca = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    $DRY_RUN_CMD rm -r $HOME/.cache/ksycoca5_*
+    $DRY_RUN_CMD kbuildsycoca5
+  '';
 
   home.packages = with pkgs; [
     gimp
