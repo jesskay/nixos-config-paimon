@@ -44,6 +44,14 @@
     nix-direnv.enable = true;
   };
 
+  programs.git = {
+    enable = true;
+    delta.enable = true;
+    userName = "Jessica Kay";
+    userEmail = "jesskay@psquid.net";
+    extraConfig.init.defaultbranch = "main";
+  };
+
   programs.mpv = {
     enable = true;
     bindings = let
