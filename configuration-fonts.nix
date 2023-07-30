@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 {
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       # intentionally added fonts
       ubuntu_font_family
       fira
