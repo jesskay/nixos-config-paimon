@@ -22,6 +22,7 @@
     ffmpeg
     obs-studio
     obsidian
+    pandoc
     prismlauncher
     fragments
     onlyoffice-bin
