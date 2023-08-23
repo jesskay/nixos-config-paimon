@@ -68,6 +68,9 @@
     openFirewall = true;
   };
 
+  # Enable waydroid
+  virtualisation.waydroid.enable = true;
+
   # Enable dconf to ensure GTK themes are applied under Wayland
   programs.dconf.enable = true;
 
