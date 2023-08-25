@@ -125,7 +125,12 @@
     isNormalUser = true;
     description = "Jessica Kay";
     uid = 1000;  # set explicitly for consistency
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "libvirtd"
+      "adbusers"
+    ];
     packages = with pkgs; [
       firefox
       discord-fixup  # from overlay
@@ -191,6 +196,9 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
+
+  # Add ADB and Fastboot and udev rules
+  programs.adb.enable = true;
 
   # Add packages that don't take special configuration
   environment.systemPackages = (with pkgs; [
