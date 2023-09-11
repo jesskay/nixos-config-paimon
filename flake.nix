@@ -6,9 +6,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.home-manager.follows = "home-manager";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs : let
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, agenix, ... }@inputs : let
 
     system = "x86_64-linux";
 
@@ -38,12 +43,16 @@
 
           # local modules
           ./configuration.nix
+          ./configuration-agenix.nix
+          ./configuration-borgbackup.nix
           ./configuration-flatpak.nix
           ./configuration-fonts.nix
           ./configuration-nix.nix
           ./configuration-yubikey.nix
           ./hardware-configuration.nix
           ./overlay
+          # modules from other flakes
+          agenix.nixosModules.default
         ];
     };
 

@@ -1,0 +1,14 @@
+let
+  userJessPaimon = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDQ3a+IP2KTH1LG/sLABJwYWtRGYgC891FiN9a5vJNRwZx8XnbweiBMFOBoRfPWie2lJ65KDJX0UU3pW2N2u7VshPlYHT9euWcu/LgEYb4AkAdumJyR31VZqvSwT41SDkYQ3S8a3TpQnlkpsXBOuvzYDymStvhrSMgo7+aLXbBAZKkVlGUq8A2HCoTb0TqN7UZArgEx+naHwv/Wc31hx6j2IifsRUQ/PDsvKD25ax8Ws9+3gH0W5qJAtMIoEcKqcban6ZR7mplOOJK2/sG13va1fXY1jyUcMUzqR4cK947yXgRMaFvh6o3t1BWBKBNYtG430W5+Ns3ahcCt3ic/IPfPUTtgKUlHMwSeJKQN4PzbExiXkCO5Ugxq9+if4kLwCKaTnlkQtC+7I8aVb7EIca8RaG6B2bwX9z7LjlTitTmAwC/UNtGCWGMwPaJI2KIqbnDdn7l9mQT0GUKZHEwAZ6x8s9tXRFEsoZpKBUmwHfdAQo6a78zWi9gUAZi7xi0UJVc=";
+  userJessPhoenix = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDEfUarOb/NUTfUfM0JPbTgR1QcXLKlw8EbXGCogs3Cz5+RXcdgUqGfZQhUPJ6i5yi9bVTRmSMsnE+I6eB0zLtW92xrWyrfa7gY0XYTYgGqEv6P9th4Iw3qb3BdZvi7UOHeuhdsK2+XAIG7dLGt/XQO6UzWvmFYgFNXppWRTUtf6GFWgKNcVy4x6EmKXtAYGUtLCczOp6fzBx6UnUnIMRuGanIvIrOY5AT4oX0B6v5SqxdEOwZ8oMyy0ai31opxRqcRPEr/cpfEh+q8n+vpJu+58PK3EMZTpXeWMpp6+tWrPxbRWpjzDeulDgLvaugXSDCHVdoXYSDREt5uq9l5/GJor2NVza9yk3Hj8N944j/g/DY9lsmq2tnRIHSphnD4/xJZo4T0WbVWyciKT3ilV07Uj54lwIRGJS56wrc9zXJPnbmLSbXI8GxSJ5wOyS/HDF6tTTfDXP1A7x+sKXogMXhTzUiswotxSJYPD1kX3qQlPwv+w6mhTL+hAo2EXqZ/5FM= jess@phoenix";
+  users = [ userJessPaimon userJessPhoenix ];
+
+  sysPhoenix = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII/MN4p2yuzHgXQ2rTertXQbRpOK43Ctr9GnD/c2m9BJ";
+  sysPaimon = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICQQUcXRW9y+hR+PrkDPEDNLSnI5amADZpql2EpxZF02";
+  systems = [ sysPhoenix sysPaimon ];
+in
+{
+  "borgkey.age".publicKeys = users ++ systems;
+  "borgpassphrase.age".publicKeys = users ++ systems;
+}
+
