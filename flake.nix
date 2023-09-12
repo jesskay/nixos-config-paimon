@@ -51,26 +51,16 @@
           ./configuration-yubikey.nix
           ./hardware-configuration.nix
           ./overlay
-          # modules from other flakes
+          # home manager module and anonymous module for its toplevel configuration
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.jess = import ./home.nix;
+          }
+          # agenix module
           agenix.nixosModules.default
         ];
-    };
-
-    homeConfigurations.jess = home-manager.lib.homeManagerConfiguration {
-      pkgs = pkgs-unstable;
-
-      modules = [
-        ( { ... }: {   # Anonymous module to enable other modules to access flake inputs
-          _module.args.inputs = inputs;
-        })
-
-        ( { ... }: {   # Anonymous module to inject a properly instantiated nixpkgs-stable into module args
-          _module.args.pkgs-stable = pkgs-stable;
-        })
-
-        # local modules
-        ./home.nix
-      ];
     };
 
   };
