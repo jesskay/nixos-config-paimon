@@ -22,7 +22,7 @@
     pandoc
     prismlauncher
     fragments
-    onlyoffice-bin
+    libreoffice-qt
     mosh
     warp
     xivlauncher
