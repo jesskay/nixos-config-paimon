@@ -71,5 +71,11 @@
       # and numpad 5 to cycle rotations (starting at 90 as at start there'll be no vf at all)
       "KP5" = "no-osd cycle-values vf ${rotate90} ${rotate180} ${rotate270} ${rotate0}";
     };
+    config = {
+      # (attempt to) unfuck dvd vobsubs
+      stretch-dvd-subs = true;
+      sub-gray = true;
+      sub-gauss = 0.5;
+    };
   };
 }
