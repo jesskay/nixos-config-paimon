@@ -30,6 +30,9 @@
   # Enable wake-on-lan
   networking.interfaces."enp34s0".wakeOnLan.enable = true;
 
+  # Enable emulated aarch64 for mobile-nixos stage 2 builds
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   # Enable tailscale
   services.tailscale.enable = true;
   networking.firewall = {
