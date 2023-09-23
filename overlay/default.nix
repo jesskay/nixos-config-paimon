@@ -8,6 +8,8 @@
 
       we10xos-dark = final.callPackage ./we10xos-dark.nix {};
 
+      adi1090x-plymouth = final.callPackage ./adi1090x-plymouth.nix {};
+
       discord-fixup = ((prev.discord.overrideAttrs (super: {
         # modify shortcut at the end of the install phase to force 80ms pulse latency
         installPhase = (super.installPhase or "") + ''

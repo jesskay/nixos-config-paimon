@@ -17,6 +17,7 @@
     { device = "/dev/disk/by-label/NIXOS_ROOT";
       fsType = "btrfs";
       options = [ "subvol=@" ];
+      neededForBoot = true;
     };
 
   fileSystems."/home" =

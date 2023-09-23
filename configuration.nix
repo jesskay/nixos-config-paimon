@@ -13,7 +13,8 @@
   # Quiet boot and plymouth graphical splash
   boot.kernelParams = [ "quiet" ];
   boot.plymouth.enable = true;
-  boot.plymouth.theme = "breeze";
+  boot.plymouth.themePackages = [ pkgs.adi1090x-plymouth ];
+  boot.plymouth.theme = "hexa_retro";
 
   # Windows filesystems (read only)
   fileSystems."/media/win-c" = {
