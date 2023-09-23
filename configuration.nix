@@ -6,6 +6,15 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
+  # Enable systemd to start in initrd (stage 1) rather than only in
+  # stage 2 - allows some services to come up sooner
+  boot.initrd.systemd.enable = true;
+
+  # Quiet boot and plymouth graphical splash
+  boot.kernelParams = [ "quiet" ];
+  boot.plymouth.enable = true;
+  boot.plymouth.theme = "breeze";
+
   # Windows filesystems (read only)
   fileSystems."/media/win-c" = {
     device = "/dev/disk/by-uuid/B062794C627917F4";
