@@ -3,7 +3,7 @@
 , useSteamRun ? true }:
 
 let
-  rev = "1.0.5";
+  rev = "1.0.6";
 in
   buildDotnetModule rec {
     pname = "XIVLauncher";
@@ -13,7 +13,7 @@ in
       owner = "goatcorp";
       repo = "XIVLauncher.Core";
       inherit rev;
-      hash = "sha256-nGCaVALgx3wNLgy77dxc7Am3zZjmi10kqSEhZi/WFyA=";
+      hash = "sha256-P1i12vw9KQOTL7QBxjKPSlda5rvoyl7DGmuuD5iVEQs=";
       fetchSubmodules = true;
     };
 

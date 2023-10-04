@@ -29,7 +29,7 @@
         nss = final.nss_latest;
       });
 
-      # xivlauncher 1.0.5 from PR 258794
+      # xivlauncher 1.0.6 from PR 258794
       # with assert to override *only* if upstream nixpkgs hasn't updated yet
       xivlauncher = assert prev.xivlauncher.version == "1.0.4"; final.callPackage ./xivlauncher {};
     })
