@@ -52,13 +52,20 @@
 
   # enable cachix cache for devenv
   nix.settings = {
+    # trust root and anyone in wheel (as they could become root anyway if they wanted)
+    trusted-users = [
+      "root"
+      "@wheel"
+    ];
     trusted-public-keys = [
       "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
     ];
     substituters = [
       "https://devenv.cachix.org"
       "https://hyprland.cachix.org"
+      "https://helix.cachix.org"
     ];
   };
 }
