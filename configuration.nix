@@ -231,6 +231,9 @@
     ark
   ]);
 
+  # enable joycond
+  services.joycond.enable = true;
+
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
