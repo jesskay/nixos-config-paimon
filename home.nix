@@ -17,6 +17,7 @@
     krita
     shotcut
     ffmpeg
+    hakuneko
     obs-studio
     obsidian
     pandoc
