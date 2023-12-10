@@ -14,16 +14,22 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-label/NIXOS_ROOT";
+    { device = "/dev/disk/by-label/LINUX_SYS";
       fsType = "btrfs";
-      options = [ "subvol=@" ];
+      options = [ "subvol=@nixos/root" ];
       neededForBoot = true;
     };
 
-  fileSystems."/home" =
-    { device = "/dev/disk/by-label/NIXOS_HOME";
+  fileSystems."/nix/store" =
+    { device = "/dev/disk/by-label/LINUX_DATA";
       fsType = "btrfs";
-      options = [ "subvol=@" ];
+      options = [ "subvol=@nixos/store" ];
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-label/LINUX_DATA";
+      fsType = "btrfs";
+      options = [ "subvol=@nixos/home" ];
     };
 
   fileSystems."/boot/efi" =
