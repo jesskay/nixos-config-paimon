@@ -10,6 +10,24 @@
 
       adi1090x-plymouth = final.callPackage ./adi1090x-plymouth.nix {};
 
+      mloader = prev.mloader.overrideAttrs (super: {
+        src = final.fetchFromGitHub {
+          owner = "hurlenko";
+          repo = "mloader";
+          rev = "117689ccdf9c32fe1f4840cb5c11fc0ba759a400";
+          hash = "sha256-mmAooUvaOML5Wq9DSmhPuzjdO4llLex5Qk776vwj7VU=";
+        };
+
+        postPatch = prev.mloader.postPatch + ''
+          substituteInPlace mloader/loader.py \
+            --replace '"app_ver": "1.8.3"' '"app_ver": "1.9.16"'
+        '';
+
+        propagatedBuildInputs = with final.python3Packages; [
+          pillow
+        ] ++ prev.mloader.propagatedBuildInputs;
+      });
+
       discord-fixup = ((prev.discord.overrideAttrs (super: {
         # modify shortcut at the end of the install phase to force 80ms pulse latency
         installPhase = (super.installPhase or "") + ''

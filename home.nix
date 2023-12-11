@@ -18,6 +18,7 @@
     shotcut
     ffmpeg
     hakuneko
+    mloader
     obs-studio
     obsidian
     pandoc
