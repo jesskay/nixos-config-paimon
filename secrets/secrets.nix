@@ -4,7 +4,7 @@ let
   users = [ userJessPaimon userJessPhoenix ];
 
   sysPhoenix = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII/MN4p2yuzHgXQ2rTertXQbRpOK43Ctr9GnD/c2m9BJ";
-  sysPaimon = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICQQUcXRW9y+hR+PrkDPEDNLSnI5amADZpql2EpxZF02";
+  sysPaimon = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAf56RYtkkcmMPlYN9dkRz6d4ydM70BC6oGuy3RAgpbV";
   systems = [ sysPhoenix sysPaimon ];
 in
 {
