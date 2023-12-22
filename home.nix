@@ -19,6 +19,7 @@
     ffmpeg
     hakuneko
     mloader
+    calibre
     obs-studio
     obsidian
     pandoc
