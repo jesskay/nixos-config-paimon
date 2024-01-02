@@ -17,15 +17,16 @@
 
     system = "x86_64-linux";
 
-    pkgs-stable = import nixpkgs {
+    pkgs-args-common = {
       inherit system;
-      config.allowUnfree = true;
+      config = {
+        allowUnfree = true;
+      };
     };
 
-    pkgs-unstable = import nixpkgs-unstable {
-      inherit system;
-      config.allowUnfree = true;
-    };
+    pkgs-stable = import nixpkgs pkgs-args-common;
+
+    pkgs-unstable = import nixpkgs-unstable pkgs-args-common;
 
   in {
 
