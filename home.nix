@@ -21,7 +21,6 @@
     mloader
     calibre
     obs-studio
-    obsidian
     pandoc
     prismlauncher
     fragments
