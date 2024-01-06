@@ -29,16 +29,18 @@
       });
 
       kitty = let
-        eccentricIcons = final.fetchFromGitHub {
-          owner = "jaidetree";
-          repo = "eccentric-icons";
-          rev = "7553fb3d8f6d2e2743595ff40b3b286ed94efe49";
-          hash = "sha256-bYm90YzOYw0j3rNxYwSLxNPQk8/cfBRCaaadPw7pQwI=";
+        kittyIcon = final.fetchFromGitHub {
+          owner = "DinkDonk";
+          repo = "kitty-icon";
+          rev = "269c0f0bd1c792cebc7821f299ce9250ed9bcd67";
+          hash = "sha256-Vy+iLGnysrJMSLfkaYq15pb/wG4kIbfsXRrPgSc3OFs=";
         };
       in prev.kitty.overrideAttrs (super: {
         installPhase = (super.installPhase or "") + ''
-          # replace the png icon and remove the svg icon
-          cp ${eccentricIcons}/icons/kitty-terminal/2d/png/icon_256x256.png \
+          # replace the png icons and remove the svg icon
+          cp ${kittyIcon}/kitty-dark.png $out/lib/kitty/logo/kitty.png
+          cp ${kittyIcon}/kitty-dark.png $out/lib/kitty/logo/kitty-128.png
+          cp ${kittyIcon}/kitty-dark.png \
              $out/share/icons/hicolor/256x256/apps/kitty.png
           rm $out/share/icons/hicolor/scalable/apps/kitty.svg
           '';
