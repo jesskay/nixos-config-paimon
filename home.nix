@@ -54,6 +54,19 @@
     extraConfig.init.defaultbranch = "main";
   };
 
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+    extraConfig = ''
+      set title
+      set tw=80
+      set colorcolumn=+1
+    '';
+  };
+
   programs.mpv = {
     enable = true;
     bindings = let
