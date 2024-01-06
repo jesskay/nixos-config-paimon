@@ -12,6 +12,7 @@
   '';
 
   home.packages = with pkgs; [
+    kitty
     gimp
     blender
     krita
@@ -80,4 +81,6 @@
       sub-gauss = 0.5;
     };
   };
+
+  xdg.configFile."kitty/kitty.conf".source = ./dotfiles/kitty.conf;
 }

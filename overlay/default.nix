@@ -28,6 +28,22 @@
         ] ++ prev.mloader.propagatedBuildInputs;
       });
 
+      kitty = let
+        eccentricIcons = final.fetchFromGitHub {
+          owner = "jaidetree";
+          repo = "eccentric-icons";
+          rev = "7553fb3d8f6d2e2743595ff40b3b286ed94efe49";
+          hash = "sha256-bYm90YzOYw0j3rNxYwSLxNPQk8/cfBRCaaadPw7pQwI=";
+        };
+      in prev.kitty.overrideAttrs (super: {
+        installPhase = (super.installPhase or "") + ''
+          # replace the png icon and remove the svg icon
+          cp ${eccentricIcons}/icons/kitty-terminal/2d/png/icon_256x256.png \
+             $out/share/icons/hicolor/256x256/apps/kitty.png
+          rm $out/share/icons/hicolor/scalable/apps/kitty.svg
+          '';
+      });
+
       discord-fixup = ((prev.discord.overrideAttrs (super: {
         # modify shortcut at the end of the install phase to force 80ms pulse latency
         installPhase = (super.installPhase or "") + ''
