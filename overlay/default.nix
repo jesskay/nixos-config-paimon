@@ -29,24 +29,15 @@
       });
 
       kitty = let
-        kittyIcon = final.fetchFromGitHub {
-          owner = "DinkDonk";
-          repo = "kitty-icon";
-          rev = "269c0f0bd1c792cebc7821f299ce9250ed9bcd67";
-          hash = "sha256-Vy+iLGnysrJMSLfkaYq15pb/wG4kIbfsXRrPgSc3OFs=";
-        };
-	convert = "${final.imagemagick}/bin/convert";
+        kittyIcon256 = ./kitty.png;
+	kittyIcon128 = ./kitty-128.png;
       in prev.kitty.overrideAttrs (super: {
         installPhase = (super.installPhase or "") + ''
           # replace the png icons and remove the svg icon
-	  # - we use imagemagick to resize the icons to match the originals
-          ${convert} ${kittyIcon}/kitty-dark.png \
-	  	-resize 256x256 $out/lib/kitty/logo/kitty.png
-          ${convert} ${kittyIcon}/kitty-dark.png \
-	  	-resize 128x128 $out/lib/kitty/logo/kitty-128.png
-          cp $out/lib/kitty/logo/kitty.png \
-             $out/share/icons/hicolor/256x256/apps/kitty.png
           rm $out/share/icons/hicolor/scalable/apps/kitty.svg
+          cp ${kittyIcon256} $out/share/icons/hicolor/256x256/apps/kitty.png
+          cp ${kittyIcon256} $out/lib/kitty/logo/kitty.png
+          cp ${kittyIcon128} $out/lib/kitty/logo/kitty-128.png
           '';
       });
 
