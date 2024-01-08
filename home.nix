@@ -96,5 +96,12 @@
     };
   };
 
+  # Install kitty config to XDG config path
   xdg.configFile."kitty/kitty.conf".source = ./dotfiles/kitty.conf;
+
+  # Enable kitty bash integration
+  programs.bash.bashrcExtra = ''
+    export KITTY_SHELL_INTEGRATION="enabled"
+    source "${pkgs.kitty}/lib/kitty/shell-integration/bash/kitty.bash"
+    '';
 }
