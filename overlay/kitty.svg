@@ -39,6 +39,18 @@
      inkscape:export-bgcolor="#00000000" />
   <defs
      id="defs1">
+    <linearGradient
+       id="linearGradient1"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#2d2234;stop-opacity:1;"
+         offset="0"
+         id="stop1" />
+      <stop
+         style="stop-color:#271e2c;stop-opacity:1;"
+         offset="1"
+         id="stop2" />
+    </linearGradient>
     <inkscape:path-effect
        effect="mirror_symmetry"
        start_point="93.887066,73.050829"
@@ -176,6 +188,15 @@
        y1="79.556313"
        x2="67.492943"
        y2="85.540054" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1"
+       id="linearGradient2"
+       x1="104.15855"
+       y1="133.68965"
+       x2="136.95898"
+       y2="161.53964"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <g
      inkscape:label="Layer 1"
@@ -184,7 +205,7 @@
      transform="translate(-48.887066,-73.050829)">
     <path
        id="path1"
-       style="fill:#2e2335;fill-opacity:1;stroke-width:0.0875627"
+       style="fill:url(#linearGradient2);fill-opacity:1;stroke-width:0.0875627"
        d="m 61.688062,73.052416 c -4.063053,0.202753 -7.405479,22.439422 -7.405479,22.439422 L 49.01548,152.94356 c 0,0 -1.645871,10.10727 6.847077,10.10727 h 15.87052 44.307463 2.97676 12.89427 c 8.49295,0 6.84708,-10.10727 6.84708,-10.10727 l -5.2671,-57.451722 c 0,0 -3.56172,-23.694627 -7.80099,-22.388965 -9.84927,3.033494 -18.09269,19.723123 -18.09269,19.723123 H 80.176262 c 0,0 -8.243418,-16.689629 -18.092686,-19.723123 -0.132477,-0.0408 -0.264447,-0.057 -0.395514,-0.05046 z"
        inkscape:label="Screen" />
     <path
