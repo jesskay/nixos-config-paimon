@@ -27,6 +27,7 @@
     prismlauncher
     fragments
     libreoffice-qt
+    obsidian
     mosh
     warp
     xivlauncher

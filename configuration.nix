@@ -160,8 +160,14 @@
   # Enable onedrive service
   services.onedrive.enable = true;
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  # Allow unfree packages, and electron 25.9.0 for Obsidian
+  # (optional on specific obsidian version so this can be re-evaluated when
+  #  obsidian updates, and hopefully depends on a non-EOL electron)
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages =
+    	pkgs.lib.optional (pkgs.obsidian.version == "1.5.3") "electron-25.9.0";
+  };
 
   # Add neovim
   programs.neovim = {
