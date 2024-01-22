@@ -19,14 +19,12 @@
     krita
     shotcut
     ffmpeg
-    hakuneko
     mloader
     calibre
     obs-studio
     pandoc
     prismlauncher
     fragments
-    libreoffice-qt
     obsidian
     mosh
     warp
