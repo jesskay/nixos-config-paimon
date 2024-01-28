@@ -30,7 +30,13 @@
     warp
     xivlauncher
     mgba
-    escrotum
+    (pkgs.writeScriptBin "take-region-screenshot" ''
+      #!/usr/bin/env bash
+
+      ${pkgs.maim}/bin/maim -u \
+      | (${pkgs.feh}/bin/feh -F - & ${pkgs.maim}/bin/maim -s && kill %1) \
+      | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png
+    '')
     (vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions; [
         mkhl.direnv
