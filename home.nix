@@ -35,7 +35,7 @@
       #!/usr/bin/env bash
 
       ${pkgs.maim}/bin/maim -u \
-      | (${pkgs.feh}/bin/feh -F - & ${pkgs.maim}/bin/maim -s ; kill %?feh) \
+      | (${pkgs.feh}/bin/feh -F - & ${pkgs.maim}/bin/maim -u -s ; kill %?feh) \
       | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png
     '')
     (vscode-with-extensions.override {
