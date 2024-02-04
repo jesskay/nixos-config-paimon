@@ -30,6 +30,7 @@
     warp
     xivlauncher
     mgba
+    beats
     (pkgs.writeScriptBin "take-region-screenshot" ''
       #!/usr/bin/env bash
 
