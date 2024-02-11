@@ -91,10 +91,10 @@
   programs.kdeconnect.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "custom";
-    xkbVariant = "";
-    xkbOptions = "";
+    variant = "";
+    options = "";
     extraLayouts."custom" = {
       description = "UK layout with Caps as LCtrl";
       languages = [ "eng" ];
