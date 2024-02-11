@@ -31,6 +31,7 @@
     xivlauncher
     mgba
     beats
+    strawberry
     (pkgs.writeScriptBin "take-region-screenshot" ''
       #!/usr/bin/env bash
 
