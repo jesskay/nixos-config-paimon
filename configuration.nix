@@ -57,6 +57,9 @@
   # Enable libvirtd
   virtualisation.libvirtd.enable = true;
 
+  # Enable podman
+  virtualisation.podman.enable = true;
+
   # Set your time zone.
   time.timeZone = "Europe/London";
 
