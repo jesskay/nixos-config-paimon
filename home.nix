@@ -31,8 +31,6 @@
     xivlauncher
     mgba
     beats
-    strawberry
-    gpodder
     (pkgs.writeScriptBin "take-region-screenshot" ''
       #!/usr/bin/env bash
 

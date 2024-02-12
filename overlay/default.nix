@@ -10,14 +10,6 @@
 
       adi1090x-plymouth = final.callPackage ./adi1090x-plymouth.nix {};
 
-      # add libgpod to LD_LIBRARY_PATH so gpodder can load it at runtime
-      gpodder = prev.gpodder.overrideAttrs (super: {
-        makeWrapperArgs = prev.gpodder.makeWrapperArgs ++ [
-	  "--prefix" "LD_LIBRARY_PATH" ":"
-	  (final.lib.makeLibraryPath [ final.libgpod ])
-	];
-      });
-
       mloader = prev.mloader.overrideAttrs (super: {
         src = final.fetchFromGitHub {
           owner = "hurlenko";
