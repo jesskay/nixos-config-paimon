@@ -182,8 +182,7 @@
   #  obsidian updates, and hopefully depends on a non-EOL electron)
   nixpkgs.config = {
     allowUnfree = true;
-    permittedInsecurePackages =
-    	pkgs.lib.optional (pkgs.obsidian.version == "1.5.3") "electron-25.9.0";
+    permittedInsecurePackages = [ ];
   };
 
   # Add neovim
