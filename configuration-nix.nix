@@ -37,6 +37,19 @@
     flake-registry = ${dummyRegistry}
   '';
 
+  # Daemon service tuning - half of normal CPU weight, and a memory soft limit
+  # of half physical RAM, and hard limit of 3/4 physical RAM.
+  #
+  # This should hopefully be high enough to avoid significant slowdown on
+  # interactive use of the daemon (nix shell, etc.) while preventing
+  # noninteractive uses (nixos-rebuild primarily) from interfering with
+  # other processes
+  systemd.services.nix-daemon.serviceConfig = {
+    CPUWeight = 50;
+    MemoryHigh = "8G";
+    MemoryMax = "12G";
+  };
+
   # automatic garbage collection
   nix.gc = {
     automatic = true;
