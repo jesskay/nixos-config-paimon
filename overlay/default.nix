@@ -50,6 +50,11 @@
           '';
       });
 
+      vivaldi = prev.vivaldi.override {
+        enableWidevine = true;
+	proprietaryCodecs = true;
+      };
+
       discord-fixup = ((prev.discord.overrideAttrs (super: {
         # modify shortcut at the end of the install phase to force 80ms pulse latency
         installPhase = (super.installPhase or "") + ''

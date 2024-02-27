@@ -31,6 +31,7 @@
     xivlauncher
     mgba
     beats
+    vivaldi
     (pkgs.writeScriptBin "take-region-screenshot" ''
       #!/usr/bin/env bash
 
