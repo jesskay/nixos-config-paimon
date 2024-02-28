@@ -11,6 +11,8 @@
     enable = true;
     mode = "challenge-response";
   };
+
+  services.pcscd.enable = true;
   
   environment.systemPackages = with pkgs; [
     yubioath-flutter
