@@ -7,8 +7,8 @@
 
   # rebuild KDE application cache on activation, to pick up new programs in the menu immediately
   home.activation.rebuildKsycoca = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    $DRY_RUN_CMD rm -r $HOME/.cache/ksycoca5_*
-    $DRY_RUN_CMD ${pkgs.libsForQt5.kservice}/bin/kbuildsycoca5
+    $DRY_RUN_CMD rm -r $HOME/.cache/ksycoca6_*
+    $DRY_RUN_CMD ${pkgs.kdePackages.kservice}/bin/kbuildsycoca6
   '';
 
   home.packages = with pkgs; [

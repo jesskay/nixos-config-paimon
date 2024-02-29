@@ -75,7 +75,7 @@
     theme = "We10XOS";
     settings.General.InputMethod = "";  # disable virtual keyboard
   };
-  services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.desktopManager.plasma6.enable = true;
 
   # Enable remote plasma
   services.xrdp = {
@@ -245,8 +245,7 @@
     # kde themes, effects, etc.
     kate
     we10xos-dark  # from overlay
-  ]) ++ (with pkgs.libsForQt5; [
-    lightly
+  ]) ++ (with pkgs.kdePackages; [
     qtstyleplugin-kvantum
     ark
   ]);
