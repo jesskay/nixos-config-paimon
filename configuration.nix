@@ -248,6 +248,7 @@
   ]) ++ (with pkgs.kdePackages; [
     qtstyleplugin-kvantum
     ark
+    sddm-kcm
   ]);
 
   # enable joycond
