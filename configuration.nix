@@ -127,27 +127,25 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  environment.etc."pipewire/revert-min-quantum.d/99-custom.conf".text = ''
+  services.pipewire.extraConfig.pipewire."revert-min-quantum" = {
     # revert to the pre-0.3.67 minimums
-    pulse.properties = {
-        pulse.min.req       = 256/48000   # 5ms
-        pulse.min.frag      = 256/48000   # 5ms
-        pulse.min.quantum   = 256/48000   # 5ms
-    }
-  '';
+    "pulse.properties" = {
+      "pulse.min.req" = 256.0 / 48000.0;  # 5ms
+      "pulse.min.frag" = 256.0 / 48000.0;  # 5ms
+      "pulse.min.quantum" = 256.0 / 48000.0;  # 5ms
+    };
+  };
 
   # enable discovery of pulse and airplay sinks
   services.avahi.enable = true;
   hardware.pulseaudio.zeroconf.discovery.enable = true;
-  services.pipewire.extraConfig.pipewire-pulse = {
-    "enable-raop-discover" = {
-      "pulse.cmd" = [
-        {
-	  cmd = "load-module";
-	  args = "module-raop-discover";
-        }
-      ];
-    };
+  services.pipewire.extraConfig.pipewire-pulse."enable-raop-discover" = {
+    "pulse.cmd" = [
+      {
+        cmd = "load-module";
+	args = "module-raop-discover";
+      }
+    ];
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
