@@ -249,6 +249,8 @@
     qtstyleplugin-kvantum
     ark
     sddm-kcm
+  ]) ++ (with pkgs.libsForQt5; [
+    qtstyleplugin-kvantum
   ]);
 
   # enable joycond
