@@ -245,6 +245,7 @@
     # kde themes, effects, etc.
     kate
     we10xos-dark  # from overlay
+    materia-kde-theme
   ]) ++ (with pkgs.kdePackages; [
     qtstyleplugin-kvantum
     ark
