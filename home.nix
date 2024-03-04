@@ -11,6 +11,19 @@
     $DRY_RUN_CMD ${pkgs.kdePackages.kservice}/bin/kbuildsycoca6
   '';
 
+  # enable qt configuration
+  qt = {
+    enable = true;
+    platformTheme = "kde";
+    style.name = "kvantum";
+  };
+
+  # configure kvantum theme (theme package installed globally, as it contains
+  # themes used before login - SDDM, etc.)
+  xdg.configFile."Kvantum/kvantum.kvconfig".text = lib.generators.toINI {} {
+    General.theme = "MateriaDark";
+  };
+
   home.packages = with pkgs; [
     kitty
     gimp
