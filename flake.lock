@@ -83,11 +83,28 @@
         "type": "github"
       }
     },
+    "nixpkgs-firefoxpwa": {
+      "locked": {
+        "lastModified": 1707237703,
+        "narHash": "sha256-h4lUI1fzrAKgVLyz7R5RgxDAu9IPKydEnRBzig9QE9s=",
+        "owner": "camillemndn",
+        "repo": "nixpkgs",
+        "rev": "bc58eb4cc51b007f2da4b96609414ef174a30c6f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "camillemndn",
+        "ref": "firefoxpwa",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-firefoxpwa": "nixpkgs-firefoxpwa"
       }
     },
     "systems": {

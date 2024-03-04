@@ -14,6 +14,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixpkgs-firefoxpwa.url = "github:camillemndn/nixpkgs/firefoxpwa";
+
   };
 
   outputs = { self, nixpkgs, home-manager, agenix, ... }@inputs : let
