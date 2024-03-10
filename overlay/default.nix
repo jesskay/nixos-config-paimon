@@ -22,7 +22,7 @@
 
         postPatch = prev.mloader.postPatch + ''
           substituteInPlace mloader/loader.py \
-            --replace-warn '"app_ver": "1.8.3"' '"app_ver": "1.9.20"'
+            --replace-warn '"app_ver": "1.8.3"' '"app_ver": "1.9.22"'
         '';
 
         propagatedBuildInputs = with final.python3Packages; [
