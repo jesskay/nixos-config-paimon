@@ -45,13 +45,15 @@
     mgba
     beats
     vivaldi
-    (pkgs.writeScriptBin "take-region-screenshot" ''
-      #!/usr/bin/env bash
-
-      ${pkgs.maim}/bin/maim -u \
-      | (${pkgs.feh}/bin/feh -F - & ${pkgs.maim}/bin/maim -u -s ; kill %?feh) \
-      | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png
-    '')
+    (pkgs.writeShellApplication {
+      name = "take-region-screenshot";
+      text = builtins.readFile ./scripts/take-region-screenshot.sh;
+      runtimeInputs = with pkgs; [
+	feh                      # common
+        maim xclip               # x11
+	grim slurp wl-clipboard  # wayland
+      ];
+    })
     (vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions; [
         mkhl.direnv
