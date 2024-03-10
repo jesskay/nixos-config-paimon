@@ -5,12 +5,6 @@
   home.username = "jess";
   home.homeDirectory = "/home/jess";
 
-  # rebuild KDE application cache on activation, to pick up new programs in the menu immediately
-  home.activation.rebuildKsycoca = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    $DRY_RUN_CMD rm -r $HOME/.cache/ksycoca6_*
-    $DRY_RUN_CMD ${pkgs.kdePackages.kservice}/bin/kbuildsycoca6
-  '';
-
   # enable qt configuration
   qt = {
     enable = true;
