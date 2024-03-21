@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Bootloader.
@@ -75,7 +75,11 @@
     theme = "breeze";
     settings.General.InputMethod = "";  # disable virtual keyboard
   };
-  services.xserver.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enable = true;
+
+  # Workaround: force plasma6 definition of gnupg pinentryPackage since
+  # plasma and xserver options both define it
+  programs.gnupg.agent.pinentryPackage = lib.mkForce pkgs.pinentry-qt;
 
   # Enable remote plasma
   services.xrdp = {
