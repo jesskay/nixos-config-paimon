@@ -35,7 +35,6 @@
   in ''
     experimental-features = nix-command flakes
     flake-registry = ${dummyRegistry}
-    builders-use-substitutes = true
   '';
 
   # automatic garbage collection
@@ -63,15 +62,4 @@
       "https://helix.cachix.org"
     ];
   };
-
-  # enable remote building on VPS
-  nix.buildMachines = [ {
-    hostName = "phoenix";
-    system = "x86_64-linux";
-    protocol = "ssh-ng";
-    maxJobs = 1;
-    supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
-    mandatoryFeatures = [ ];
-  } ];
-  nix.distributedBuilds = true;
 }
