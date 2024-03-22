@@ -77,10 +77,6 @@
   };
   services.desktopManager.plasma6.enable = true;
 
-  # Workaround: force plasma6 definition of gnupg pinentryPackage since
-  # plasma and xserver options both define it
-  programs.gnupg.agent.pinentryPackage = lib.mkForce pkgs.pinentry-qt;
-
   # Enable remote plasma
   services.xrdp = {
     enable = true;
