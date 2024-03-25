@@ -14,8 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixpkgs-firefoxpwa.url = "github:camillemndn/nixpkgs/firefoxpwa";
-
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";

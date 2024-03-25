@@ -10,8 +10,6 @@
 
       adi1090x-plymouth = final.callPackage ./adi1090x-plymouth.nix {};
 
-      firefoxpwa = final.callPackage "${inputs.nixpkgs-firefoxpwa}/pkgs/by-name/fi/firefoxpwa/package.nix" {};
-
       mloader = prev.mloader.overrideAttrs (super: {
         src = final.fetchFromGitHub {
           owner = "hurlenko";
