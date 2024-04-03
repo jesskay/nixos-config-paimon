@@ -14,14 +14,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
   };
 
-  outputs = { self, nixpkgs, home-manager, agenix, nixos-cosmic, ... }@inputs : let
+  outputs = { self, nixpkgs, home-manager, agenix, ... }@inputs : let
 
     system = "x86_64-linux";
 
@@ -54,16 +49,6 @@
           }
           # agenix module
           agenix.nixosModules.default
-
-	  # cosmic testing
-	  nixos-cosmic.nixosModules.default
-	  {
-	    nix.settings = {
-	      substituters = [ "https://cosmic.cachix.org/" ];
-	      trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-	    };
-	    services.desktopManager.cosmic.enable = true;
-	  }
         ];
     };
 
