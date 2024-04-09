@@ -8,7 +8,7 @@
   # enable qt configuration
   qt = {
     enable = true;
-    platformTheme = "kde";
+    # platformTheme = "kde";
     style.name = "kvantum";
   };
 
