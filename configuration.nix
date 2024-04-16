@@ -70,7 +70,7 @@
   services.xserver.enable = true;
 
   # Enable KDE Plasma.
-  services.xserver.displayManager.sddm = { 
+  services.displayManager.sddm = { 
     enable = true;
     theme = "breeze";
     settings.General.InputMethod = "";  # disable virtual keyboard
