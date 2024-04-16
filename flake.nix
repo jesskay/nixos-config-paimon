@@ -39,7 +39,14 @@
           ./configuration-nix.nix
           ./configuration-yubikey.nix
           ./hardware-configuration.nix
-          ./overlay
+
+	  # overlays
+	  {
+            nixpkgs.overlays = [
+	      (import ./overlay)
+	    ];
+	  }
+
           # home manager module and anonymous module for its toplevel configuration
           home-manager.nixosModules.home-manager
           {
