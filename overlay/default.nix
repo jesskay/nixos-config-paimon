@@ -53,7 +53,14 @@
       rm $out/share/applications
       mv $out/share/applications-copy $out/share/applications
 
-      # patch the desktop item in place
+      # fail if the patching commands fail
+      set -e
+
+      # patch in arguments in-place
+      sed 's/Exec=Discord/Exec=Discord --enable-features=UseOzonePlatform --ozone-platform=wayland/' \
+      	-i $out/share/applications/discord.desktop
+
+      # patch in environment variables in-place
       sed 's/^Exec=/Exec=env PULSE_LATENCY_MSEC=200 /' -i $out/share/applications/discord.desktop
       '';
   })).override {  # override to use the same nss as firefox
