@@ -77,6 +77,9 @@
   };
   services.desktopManager.plasma6.enable = true;
 
+  # Increase CPU weight for session slice to minimize user impact of high load
+  systemd.user.slices."session".sliceConfig.CPUWeight = "200";
+
   # Enable remote plasma
   services.xrdp = {
     enable = true;
