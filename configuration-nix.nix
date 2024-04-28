@@ -44,6 +44,12 @@
     dates = "weekly";
   };
 
+  # enable nh helper
+  programs.nh = {
+    enable = true;
+    flake = "${config.users.users.jess.home}/nixos-config-paimon";
+  };
+
   # enable cachix cache for devenv
   nix.settings = {
     # limit builds to at most 2/3 of logical cores (12 on this machine)

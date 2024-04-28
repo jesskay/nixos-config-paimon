@@ -54,6 +54,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.jess = import ./home.nix;
           }
+
           # agenix module
           agenix.nixosModules.default
         ];
