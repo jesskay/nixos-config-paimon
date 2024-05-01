@@ -136,8 +136,18 @@
     };
   };
 
-  # enable discovery of pulse and airplay sinks
-  services.avahi.enable = true;
+  # publish services via avahi
+  services.avahi = {
+    enable = true;
+    publish = {
+      enable = true;
+      addresses = true;
+      workstation = true;
+      userServices = true;
+    };
+  };
+
+  # enable discovery of pulse and airplay sinks (also needs avahi, above)
   hardware.pulseaudio.zeroconf.discovery.enable = true;
   services.pipewire.extraConfig.pipewire-pulse."enable-raop-discover" = {
     "pulse.cmd" = [
