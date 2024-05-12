@@ -39,6 +39,7 @@
     mgba
     beats
     brogue-ce
+    heroic
     (pkgs.writeShellApplication {
       name = "take-region-screenshot";
       text = builtins.readFile ./scripts/take-region-screenshot.sh;
