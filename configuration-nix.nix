@@ -22,19 +22,16 @@
     active-flake.flake = inputs.self;
   };
 
-  # enable flakes and point global repository to a dummy file
-  nix.extraOptions = 
-  let
-    dummyRegistry = pkgs.writeText "dummy-registry.json"
-    ''
-      {
-        "version": 2,
-        "flakes": []
-      }
-    '';
-  in ''
-    experimental-features = nix-command flakes
-    flake-registry = ${dummyRegistry}
+  # enable flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  
+  # point global flake registry to a dummy file to remove default entries
+  nix.settings.flake-registry = pkgs.writeText "dummy-registry.json"
+  ''
+    {
+      "version": 2,
+      "flakes": []
+    }
   '';
 
   # automatic garbage collection
