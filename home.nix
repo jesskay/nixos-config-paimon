@@ -5,6 +5,9 @@
   home.username = "jess";
   home.homeDirectory = "/home/jess";
 
+  # set up per-user nixpkgs config
+  xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs-config.nix;
+
   # enable qt configuration
   qt = {
     enable = true;
