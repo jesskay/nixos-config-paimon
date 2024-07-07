@@ -77,8 +77,20 @@
   };
   services.desktopManager.plasma6.enable = true;
 
-  # Increase CPU weight for session slice to minimize user impact of high load
-  systemd.user.slices."session".sliceConfig.CPUWeight = "200";
+  # Enable system76 scheduler
+  services.system76-scheduler.enable = true;
+
+  # Set system76-scheduler to deprioritize nix-daemon compared to interactive
+  services.system76-scheduler.assignments = {
+    nix-builds = {
+      nice = 15;
+      class = "batch";
+      ioClass = "idle";
+      matchers = [
+        "nix-daemon"
+      ];
+    };
+  };
 
   # Enable remote plasma
   services.xrdp = {
