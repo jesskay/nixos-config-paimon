@@ -7,6 +7,8 @@
 
   adi1090x-plymouth = self.callPackage ./adi1090x-plymouth.nix {};
 
+  brother-ql-next = self.callPackage ./brother-ql-next.nix {};
+
   mloader = super.mloader.overrideAttrs {
     src = self.fetchFromGitHub {
       owner = "hurlenko";

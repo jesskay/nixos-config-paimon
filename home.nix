@@ -43,6 +43,7 @@
     beats
     brogue-ce
     heroic
+    brother-ql-next
     (pkgs.writeShellApplication {
       name = "take-region-screenshot";
       text = builtins.readFile ./scripts/take-region-screenshot.sh;
