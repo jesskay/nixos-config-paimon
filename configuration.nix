@@ -302,6 +302,10 @@
     ];
   };
 
+  services.udev.extraRules = ''
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="04f9", ATTRS{idProduct}=="2028", TAG+="uaccess"
+  '';
+
   system.stateVersion = "24.05";
 
 }

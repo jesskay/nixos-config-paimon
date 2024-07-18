@@ -122,8 +122,12 @@
   xdg.configFile."kitty/kitty.conf".source = ./dotfiles/kitty.conf;
 
   # Enable kitty bash integration
+  #  & set environment variables for printing to QL-570 with brother_ql
   programs.bash.bashrcExtra = ''
     export KITTY_SHELL_INTEGRATION="enabled"
     source "${pkgs.kitty}/lib/kitty/shell-integration/bash/kitty.bash"
+
+    export BROTHER_QL_PRINTER=usb://0x04f9:0x2028
+    export BROTHER_QL_MODEL=QL-570
     '';
 }
