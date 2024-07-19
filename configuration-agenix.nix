@@ -1,5 +1,4 @@
 { config, pkgs, lib, ... }:
 {
-  age.secrets.borgkey.file = ./secrets/borgkey.age;
-  age.secrets.borgpassphrase.file = ./secrets/borgpassphrase.age;
+  # age.secrets.EXAMPLE_NAME.file = ./secrets/EXAMPLE_NAME.age;
 }

@@ -8,7 +8,6 @@ let
   systems = [ sysPhoenix sysPaimon ];
 in
 {
-  "borgkey.age".publicKeys = users ++ systems;
-  "borgpassphrase.age".publicKeys = users ++ systems;
+  # "EXAMPLE_FILENAME".publicKeys = users ++ systems;
 }
 

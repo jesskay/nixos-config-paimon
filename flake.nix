@@ -33,7 +33,6 @@
           # local modules
           ./configuration.nix
           ./configuration-agenix.nix
-          ./configuration-borgbackup.nix
           ./configuration-flatpak.nix
           ./configuration-fonts.nix
           ./configuration-nix.nix
