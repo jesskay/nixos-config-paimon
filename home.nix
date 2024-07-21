@@ -22,6 +22,7 @@
   };
 
   home.packages = with pkgs; [
+    kdePackages.discover
     kitty
     gimp
     inkscape
