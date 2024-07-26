@@ -181,6 +181,7 @@
       "wheel"
       "libvirtd"
       "adbusers"
+      "plugdev"
     ];
     openssh.authorizedKeys.keys = [
       "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNlbD3M/P430r5JgrbriC6H2dKUSuIflEouucsNwNR0cWQVYorpyn/hR6APsav6q9HaiHQPramKwCP7e2/3N2us= ShellFish@iPhone-30102022"
@@ -291,8 +292,9 @@
     ];
   };
 
+  # make brother QL-570 printer available to all plugdev
   services.udev.extraRules = ''
-    SUBSYSTEM=="usb", ATTRS{idVendor}=="04f9", ATTRS{idProduct}=="2028", TAG+="uaccess"
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="04f9", ATTRS{idProduct}=="2028", MODE="0660", GROUP="plugdev"
   '';
 
   system.stateVersion = "24.05";
