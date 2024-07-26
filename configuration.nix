@@ -177,6 +177,7 @@
     description = "Jessica Kay";
     uid = 1000;  # set explicitly for consistency
     extraGroups = [
+      "audio"
       "networkmanager"
       "wheel"
       "libvirtd"
