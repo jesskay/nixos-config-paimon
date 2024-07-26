@@ -23,6 +23,7 @@
 
   home.packages = with pkgs; [
     kdePackages.discover
+    keepassxc
     kitty
     gimp
     inkscape
