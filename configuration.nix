@@ -183,7 +183,6 @@
       "adbusers"
     ];
     packages = with pkgs; [
-      discord-fixup  # from overlay
       keepassxc
     ];
     openssh.authorizedKeys.keys = [
@@ -203,12 +202,6 @@
   nixpkgs.config = {
     allowUnfree = true;
     permittedInsecurePackages = [ ];
-  };
-
-  # Add firefox (with pwa native component)
-  programs.firefox = {
-    enable = true;
-    nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
   };
 
   # Add neovim
@@ -269,7 +262,6 @@
     virt-manager
     virtiofsd
     easyeffects
-    firefoxpwa
 
     # kde themes, effects, etc.
     kate

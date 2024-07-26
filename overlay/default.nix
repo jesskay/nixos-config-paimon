@@ -44,23 +44,4 @@
     enableWidevine = true;
     proprietaryCodecs = true;
   };
-
-  discord-fixup = ((super.discord.overrideAttrs (previousAttrs: {
-    # modify shortcut at the end of the install phase to force 80ms pulse latency
-    installPhase = (previousAttrs.installPhase or "") + ''
-      # copy the content out of the symlinked applications dir so we can actually work with it
-      # (otherwise it's in a different derivation and perms won't let us touch it)
-      mkdir -p $out/share/applications-copy
-      cp -a $out/share/applications/* $out/share/applications-copy/
-      rm $out/share/applications
-      mv $out/share/applications-copy $out/share/applications
-
-      # patch the desktop item in place
-      sed 's/^Exec=/Exec=env PULSE_LATENCY_MSEC=200 /' -i $out/share/applications/discord.desktop
-      '';
-  })).override {  # override to use the same nss as firefox
-    # will need updating if firefox ever uses a non-latest nss
-    # obsoleted if/when https://github.com/NixOS/nixpkgs/pull/186603 lands
-    nss = self.nss_latest;
-  });
 })
