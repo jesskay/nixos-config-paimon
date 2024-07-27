@@ -9,6 +9,21 @@
 
   brother-ql = self.callPackage ./brother-ql-next.nix {};
 
+  where-is-my-sddm-theme = (super.where-is-my-sddm-theme.overrideAttrs {
+    postPatch = ''
+      substituteInPlace where_is_my_sddm_theme/Main.qml \
+        --replace-warn 'if (text != "")' 'if (text != "" || config.boolValue("passwordAllowEmpty"))'
+    '';
+  }).override {
+    themeConfig.General = {
+      background = "${self.plasma-workspace-wallpapers}/share/wallpapers/Shell/contents/images/5120x2880.jpg";
+      backgroundMode = "fill";
+      blurRadius = 48;
+      passwordCursorColor = "#ffffff";
+      passwordAllowEmpty = true;
+    };
+  };
+
   mloader = super.mloader.overrideAttrs {
     src = self.fetchFromGitHub {
       owner = "hurlenko";

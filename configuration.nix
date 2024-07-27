@@ -72,7 +72,7 @@
   # Enable KDE Plasma.
   services.displayManager.sddm = { 
     enable = true;
-    theme = "breeze";
+    theme = "where_is_my_sddm_theme";
     settings.General.InputMethod = "";  # disable virtual keyboard
   };
   services.desktopManager.plasma6.enable = true;
@@ -265,6 +265,7 @@
     kate
     we10xos-dark  # from overlay
     materia-kde-theme
+    where-is-my-sddm-theme
   ]) ++ (with pkgs.kdePackages; [
     qtstyleplugin-kvantum
     ark
