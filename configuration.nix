@@ -202,6 +202,9 @@
     permittedInsecurePackages = [ ];
   };
 
+  # Add firefox
+  programs.firefox.enable = true;
+
   # Add neovim
   programs.neovim = {
     enable = true;
