@@ -192,9 +192,6 @@
     ];
   };
 
-  # Enable onedrive service
-  services.onedrive.enable = true;
-
   # Allow unfree packages, and electron 25.9.0 for Obsidian
   # (optional on specific obsidian version so this can be re-evaluated when
   #  obsidian updates, and hopefully depends on a non-EOL electron)
