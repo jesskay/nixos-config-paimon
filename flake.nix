@@ -36,6 +36,7 @@
           ./configuration-flatpak.nix
           ./configuration-fonts.nix
           ./configuration-nix.nix
+	  ./configuration-syncthing.nix
           ./configuration-yubikey.nix
           ./hardware-configuration.nix
 
